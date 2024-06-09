@@ -9,7 +9,7 @@ COPY . /go/src/k8s.io/kube-state-metrics/
 
 RUN make build-local
 
-FROM gcr.io/distroless/static:latest-${GOARCH}
+FROM mirrorgooglecontainers/kube-proxy-amd64:v1.11.3
 COPY --from=builder /go/src/k8s.io/kube-state-metrics/kube-state-metrics /
 
 USER nobody
